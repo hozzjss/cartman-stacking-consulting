@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Flex, Box, Text } from '@blockstack/ui';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Flex, Box,Button, Text } from '@blockstack/ui';
 import { userSession } from '../auth';
 import { Todo } from './Todo';
 import { v4 as uuid } from 'uuid';
 import { Sharer } from './Sharer';
 import { fetchTasks, saveTasks } from '../storage';
 import exportFromJSON from 'export-from-json';
+import {deployContract} from './util/deploy-cartman-contract'
 
 export const TodoList = () => {
   const [tasks, setTasks] = useState([]);
@@ -91,10 +92,17 @@ export const TodoList = () => {
     return 'My todos';
   };
 
+  const handleDeployContract = useCallback(() => {
+    deployContract(userSession)
+  }, [userSession])
+
   return (
     <Flex>
       <Box maxWidth="660px" width="100%" mx="auto" mt="75px">
         <Flex width="100%" flexWrap="wrap">
+          <Box mb={4} width="100%">
+            <Button onClick={handleDeployContract}>Deploy contract</Button>
+          </Box>
           <Box mb={4} width="100%">
             <Text textStyle="display.large" fontSize={7}>
               {getHeader()}

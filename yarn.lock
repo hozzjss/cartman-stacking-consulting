@@ -1107,6 +1107,7 @@
 "@blockstack/stacks-transactions@0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@blockstack/stacks-transactions/-/stacks-transactions-0.7.0.tgz#c587f69879b1903bada87769f1d6d1217479336a"
+  integrity sha512-9IUR641PJpigYDCWdtKFgBIk0Oxyoc2M2XVdyaEOEcRhI+4lcacDhsuseAmGbkB9FhJgJcNicWPujUPNFl1XCw==
   dependencies:
     "@types/bn.js" "^4.11.6"
     "@types/elliptic" "^6.4.12"
@@ -1537,19 +1538,28 @@
   dependencies:
     cross-fetch "^3.0.5"
 
-"@stacks/connect-ui@^2.17.1":
-  version "2.17.1"
-  resolved "https://registry.yarnpkg.com/@stacks/connect-ui/-/connect-ui-2.17.1.tgz#c3f913ce6dcf066e16cc7ac2e9bf702d78f985fb"
+"@stacks/common@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@stacks/common/-/common-1.0.1.tgz#76fea117e38a6a4b901242513bb765a485104f47"
+  integrity sha512-Rw+ezdoJ/5kc8MklAUerOusVHzn3FOibVqq8+iyTa4FGSd0CiDoByCEBQQ9+T6GsxgVVOTL/e+YCwWL/Ywu2UQ==
+  dependencies:
+    cross-fetch "^3.0.6"
+
+"@stacks/connect-ui@^2.17.16":
+  version "2.17.16"
+  resolved "https://registry.yarnpkg.com/@stacks/connect-ui/-/connect-ui-2.17.16.tgz#35ada7a8e601f3f736da29ec1ffdf7c8ad85e39f"
+  integrity sha512-j0jc9+82Vj9fU1Na6eODcw/vJk0HrFugqpdFGfp1JOjr0/jObFKdgEhIO+id4twza1x9HsSwEByajb5/qVOm3Q==
   dependencies:
     "@stencil/core" "^1.17.3"
 
-"@stacks/connect@^4.3.1":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@stacks/connect/-/connect-4.3.1.tgz#0fda767719faaa0ee0562ad377ae90fc122f1beb"
+"@stacks/connect@^4.3.15":
+  version "4.3.15"
+  resolved "https://registry.yarnpkg.com/@stacks/connect/-/connect-4.3.15.tgz#30f98cae6f569715573cf3b319a9b5b35d65fe98"
+  integrity sha512-nanEzEPi+CLNdwR6nx4vjC1v0rzPN/PfUT+vF5GlqCpp+xwMHGU06Xk39HNdg2aoRevMCqk6DwQ21DniuqHd3A==
   dependencies:
     "@blockstack/stacks-transactions" "0.7.0"
     "@stacks/auth" "^1.0.0-beta.19"
-    "@stacks/connect-ui" "^2.17.1"
+    "@stacks/connect-ui" "^2.17.16"
     jsontokens "^3.0.0"
 
 "@stacks/encryption@^1.0.0-beta.19":
@@ -1571,6 +1581,13 @@
   dependencies:
     "@stacks/common" "^1.0.0-beta.19"
 
+"@stacks/network@^1.1.1-alpha.0":
+  version "1.1.1-alpha.0"
+  resolved "https://registry.yarnpkg.com/@stacks/network/-/network-1.1.1-alpha.0.tgz#c37d04daf4672bd488044565e5cb722011a8cac2"
+  integrity sha512-y96qXO8Lne3PpSGJj8C6NLu6Ns27uPj7pqvjYewy8aIuFx0tfq/kwuOQNgCFqrLqThorMFGamFJhcG8in4Eh4A==
+  dependencies:
+    "@stacks/common" "^1.0.1"
+
 "@stacks/profile@^1.0.0-beta.19":
   version "1.0.0-beta.19"
   resolved "https://registry.yarnpkg.com/@stacks/profile/-/profile-1.0.0-beta.19.tgz#594c455592bba99d84cf299fdf18a66a50dee9b5"
@@ -1590,6 +1607,28 @@
     "@stacks/auth" "^1.0.0-beta.19"
     "@stacks/common" "^1.0.0-beta.19"
     "@stacks/encryption" "^1.0.0-beta.19"
+
+"@stacks/transactions@^1.1.1-alpha.0":
+  version "1.1.1-alpha.0"
+  resolved "https://registry.yarnpkg.com/@stacks/transactions/-/transactions-1.1.1-alpha.0.tgz#e714e60719ddc7024a32aac301a53afdd7df30e5"
+  integrity sha512-iagBEiabTj+9U6ZcmxoaztJwSie1AK8ZbQYQdOC6V94niQ9BVwxs+/v7qgqifgeHVMKgaVzGa2/YT1I1FGkqyA==
+  dependencies:
+    "@stacks/common" "^1.0.1"
+    "@stacks/network" "^1.1.1-alpha.0"
+    "@types/bn.js" "^4.11.6"
+    "@types/elliptic" "^6.4.12"
+    "@types/randombytes" "^2.0.0"
+    "@types/sha.js" "^2.4.0"
+    bn.js "^4.11.9"
+    c32check "^1.1.1"
+    cross-fetch "^3.0.5"
+    elliptic "^6.5.3"
+    lodash "^4.17.20"
+    lodash-es "4.17.20"
+    randombytes "^2.1.0"
+    ripemd160-min "^0.0.6"
+    sha.js "^2.4.11"
+    smart-buffer "^4.1.0"
 
 "@stencil/core@^1.17.3":
   version "1.17.4"
@@ -3641,7 +3680,7 @@ create-hmac@^1.1.0, create-hmac@^1.1.3, create-hmac@^1.1.4, create-hmac@^1.1.7:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-cross-fetch@^3.0.4, cross-fetch@^3.0.5:
+cross-fetch@^3.0.4, cross-fetch@^3.0.5, cross-fetch@^3.0.6:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/cross-fetch/-/cross-fetch-3.0.6.tgz#3a4040bc8941e653e0e9cf17f29ebcd177d3365c"
   dependencies:
@@ -6838,6 +6877,11 @@ locate-path@^5.0.0:
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-5.0.0.tgz#1afba396afd676a6d42504d0a67a3a7eb9f62aa0"
   dependencies:
     p-locate "^4.1.0"
+
+lodash-es@4.17.20:
+  version "4.17.20"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.20.tgz#29f6332eefc60e849f869c264bc71126ad61e8f7"
+  integrity sha512-JD1COMZsq8maT6mnuz1UMV0jvYD0E0aUsSOdrr1/nAG3dhqQXwRRgeW0cSqH1U43INKcqxaiVIQNOUDld7gRDA==
 
 lodash._reinterpolate@^3.0.0:
   version "3.0.0"

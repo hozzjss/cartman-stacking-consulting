@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Signin } from './Signin';
+import {Text, Box} from '@blockstack/ui'
 import { Header } from './Header';
 import { ThemeProvider, theme, CSSReset, ToastProvider } from '@blockstack/ui';
-import { TodoList } from './TodoList';
 import { userSession } from '../auth';
+import StackingResult from './StackingResult';
 
 export default class App extends Component {
   state = {
@@ -23,7 +23,15 @@ export default class App extends Component {
           <div className="site-wrapper">
             <div className="site-wrapper-inner">
               <Header />
-              {!userSession.isUserSignedIn() ? <Signin /> : <TodoList />}
+              <Box width="100%" textAlign="center">
+                <Box maxWidth="800px" mx="auto" mt={[6, '100px']}>
+                  <Text fontWeight="700" fontSize={['36px', '50px']} lineHeight={1} display="block">
+                    Cartman Stacking Consulting
+                  </Text>
+                  <StackingResult />
+                </Box>
+              </Box>
+
             </div>
           </div>
         </ToastProvider>
