@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { callReadOnlyFunction, cvToString, validateStacksAddress } from '@stacks/transactions';
-import { StacksMainnet as Network } from '@stacks/network';
+import { validateStacksAddress } from '@stacks/transactions';
 import { Flex, Box, Text, Input } from '@blockstack/ui';
 
 const hex_to_ascii = str1 => {
@@ -12,21 +11,15 @@ const hex_to_ascii = str1 => {
   return str;
 };
 
+const dev = process.env.NODE_ENV === 'development'
+
+const network = dev ? 'testnet' : 'mainnet';
+const address = dev ? 'ST21T5JFBQQPYQNQJRKYYJGQHW4A12G5ENBBA9WS7' : 'SP32AEEF6WW5Y0NMJ1S8SBSZDAY8R5J32NBZFPKKZ'
+const contractName= dev ? 'cartman-stacking-consultancy-3' :'cartman-stacking-consulting'
 const fetchIfCanStack = async stxAddress => {
-  if (process.env.NODE_ENV === 'production') {
-    const contractResult = await callReadOnlyFunction({
-      contractAddress: 'SP32AEEF6WW5Y0NMJ1S8SBSZDAY8R5J32NBZFPKKZ',
-      contractName: 'cartman-stacking-consulting',
-      functionArgs: [],
-      senderAddress: stxAddress,
-      functionName: 'cartman-can-i-stack',
-      network: new Network(),
-    });
-    return cvToString(contractResult);
-  } else {
     const contractResult = await fetch(
-      'https://stacks-node-api.testnet.stacks.co/v2/contracts/call-read/' +
-        'ST21T5JFBQQPYQNQJRKYYJGQHW4A12G5ENBBA9WS7/cartman-stacking-consultancy-3/cartman-can-i-stack',
+      `https://stacks-node-api.${network}.stacks.co/v2/contracts/call-read/` +
+        `${address}/${contractName}/cartman-can-i-stack`,
       {
         method: 'POST',
         body: JSON.stringify({
@@ -41,7 +34,6 @@ const fetchIfCanStack = async stxAddress => {
       .then(res => res.json())
       .then(res => res.result);
     return hex_to_ascii(contractResult.slice(12));
-  }
 };
 
 const StackingResult = () => {
@@ -62,7 +54,7 @@ const StackingResult = () => {
         setIsLoading(false);
       });
     }
-  }, [stxAddress]);
+  }, [stxAddress, isValidAddress]);
   const canStack = result === 'Yes you can';
   const image = canStack ? '/cartman-fu.jpeg' : '/eric-yo-mama.jpg';
   return (
