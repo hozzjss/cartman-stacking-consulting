@@ -1,6 +1,6 @@
 {
-  "name": "todos",
-  "description": "A simple todos app powered by Stacks.js",
+  "name": "cartman-stacking-consulting",
+  "description": "A simple app powered by Stacks.js",
   "author": "Michael Stivala <michaelstivala@me.com> (https://michaelstivala.com/)",
   "contributors": [
     "Aaron Blankstein <aaron@blockstack.com> (https://github.com/kantai)",
@@ -11,11 +11,12 @@
     "Jack Zampolin (https://github.com/jackzampolin)",
     "Moxiegirl (https://github.com/moxiegirl)",
     "Sahana Srinivasan (https://github.com/Sahana-Srinivasan)",
-    "Mark Hendrickson (https://github.com/markmhx)"
+    "Mark Hendrickson (https://github.com/markmhx)",
+    "Mohamed Huzayen (https://github.com/hozzjss)"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/blockstack/todos"
+    "url": "https://github.com/hozzjss/cartman-stacking-consulting"
   },
   "version": "0.2.0",
   "private": true,
